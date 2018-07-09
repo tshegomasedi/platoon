@@ -22,17 +22,7 @@ public class InvoiceController {
         this.invoiceService = invoiceService;
     }
 
-    @GetMapping("invoices")
-    public List<Invoice> getAllInvoices(){
-        return invoiceService.getAllInvoices();
-    }
-
-    @GetMapping("invoice/{id}")
-    public Invoice getInvoiceById(@PathVariable(value = "id") Long playerId){
-        return invoiceService.getInvoiceById(playerId).orElseThrow(() -> new ResourceNotFoundException("Invoice", "id", playerId));
-    }
-
-    @PostMapping("/invoice")
+    @PostMapping("/invoices")
     public Invoice addInvoice(@RequestBody Invoice invoice){
         try {
             return invoiceService.addInvoice(invoice);
@@ -40,4 +30,16 @@ public class InvoiceController {
             throw new InternalServerException("Invoice");
         }
     }
+
+    @GetMapping("invoices")
+    public List<Invoice> viewAllInvoices(){
+        return invoiceService.getAllInvoices();
+    }
+
+    @GetMapping("invoices/{id}")
+    public Invoice viewInvoice(@PathVariable(value = "id") Long playerId){
+        return invoiceService.getInvoiceById(playerId).orElseThrow(() -> new ResourceNotFoundException("Invoice", "id", playerId));
+    }
+
+
 }
