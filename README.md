@@ -7,6 +7,6 @@ run commands:
 
 `cd assignment1-api`
 
-`mvnw clean install bootRun` (internet connection required for dependencies)
+`mvnw clean install spring-boot:run` (internet connection required for dependencies)
 
 
