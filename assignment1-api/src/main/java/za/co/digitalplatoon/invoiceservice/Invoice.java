@@ -69,7 +69,9 @@ public class Invoice implements Serializable {
 
     public BigDecimal getSubTotal(){
         BigDecimal subTotal = BigDecimal.ZERO;
-        lineItems.forEach(lineItem -> subTotal.add(lineItem.getLineItemTotal()));
+        for (LineItem lineItem : lineItems) {
+            subTotal = subTotal.add(lineItem.getLineItemTotal());
+        }
         return subTotal.setScale(2, RoundingMode.HALF_UP);
     }
 
