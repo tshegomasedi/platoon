@@ -3,6 +3,8 @@
 ##api -- run
 build tool - maven (using maven wrapper..no local installation required)
 
+jdk - using java 10
+
 run commands: 
 
 `cd assignment1-api`
